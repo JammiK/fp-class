@@ -160,6 +160,6 @@ create3v a n
 connect (x:xs) [] = x : xs
 connect [] (x:xs) = x : xs
 connect (x:xs) (y:ys) = x : connect xs (y:ys)
--- е) Eq a => [a] -> [[a]]
+-- е) Eq a => [a] -> [[a]] 
 -- ж) [a] -> [(Int, a)]
 -- з) Eq a => [a] -> [a] 
