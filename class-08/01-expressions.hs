@@ -20,7 +20,7 @@ eval (e1 `Mul` e2) = eval e1 * eval e2
 -}
 
 instance Eq Expr where
-  (==) = undefined
+	(==) e1 e2 = (eval e1) == (eval e2)
 
 {-
   Реализуйте для этого типа экземпляр класса типов Show так,
@@ -30,7 +30,12 @@ instance Eq Expr where
 -}
 
 instance Show Expr where
-  show = undefined
+	show (I n) = show n
+	show (e1 `Add` e2) = show e1 ++ "+" ++ show e2
+	show ((e1 `Add` e2) `Mul` e3) = "(" ++ show (e1 `Add` e2) ++ ")*" ++ show e3
+	show (e1 `Mul` e2) = show e1 ++ "*" ++ show e2
+	show ((e1 `Mul` e2) `Add` e3) = show (e1 `Mul` e2) ++ "+" ++ show e3
+	
 
 -- Тесты
 test = all (== expr 4) exprs
@@ -47,3 +52,11 @@ test = all (== expr 4) exprs
 {-
   Напишите экземпляр класса типов Ord, который сравнивает выражения по их значению.
 -}
+
+instance Ord Expr where
+	ex1 == ex2 = eval ex1 == eval ex2
+	ex1 < ex2 = eval ex1 < eval ex2
+	ex1 > ex2 = eval ex1 > eval ex2
+	ex1 <= ex2 = ex1 < ex2 || ex1 == ex2
+	ex1 >= ex2 = ex1 > ex2 || ex1 == ex2
+	
