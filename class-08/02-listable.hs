@@ -24,4 +24,4 @@ instance Listable Integer
 				digits x
 					| x == 0 = []
 					| otherwise  mod x 10 : (digits $ div x 10)
-		fromList = read . unwords . map (show)
+		fromList = read . unwords . map (show) 

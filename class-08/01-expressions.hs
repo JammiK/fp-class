@@ -41,7 +41,7 @@ instance Show Expr where
 test = all (== expr 4) exprs
        && all (/= (I 10)) exprs
        && map show exprs == ["(5+1)*7", "6+6*6", "12+17+13", "42"]
-  where
+  where 
     expr 1 = (I 5 `Add` I 1) `Mul` I 7
     expr 2 = I 6 `Add` (I 6`Mul` I 6)
     expr 3 = (I 12 `Add` I 17) `Add` I 13
