@@ -1,0 +1,4 @@
+summand=5
+multiplier=2
+multiplier=2
+divisor=4
